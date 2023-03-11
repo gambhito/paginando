@@ -9,12 +9,12 @@ app.use(cors());
 
 app.get('/api/images', async (req, res) => {
     const { resources } = await cloudinary.search
-        .expression('folder:cloudinary_react')
+        .expression('folder:galeria')
         .sort_by('public_id', 'desc')
-        .max_results(30)
+        .max_results(100)
         .execute();
 
-    const publicIds = resources.map((file) => file.public_id);
+    const publicIds = resources.map(file => file.public_id);
     res.send(publicIds);
 });
 
@@ -22,12 +22,12 @@ app.post('/api/upload', async (req, res) => {
     try {
         const fileStr = req.body.data;
         const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-            upload_preset: 'cloudinary_react',
+            upload_preset: 'galeria',
         });
         console.log(uploadResponse);
         res.json({ msg: 'File uploaded sucessfully' });
     } catch (err) {
-        console.error(err);
+        console.log(err);
         res.status(500).json({ err: 'Something went wrong' });
     }
 });

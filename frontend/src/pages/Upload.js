@@ -21,7 +21,7 @@ const Upload = () => {
             uploadImage(reader.result);
         };
         reader.onerror = () => {
-            console.error('Error');
+            console.log('Error');
         };
     };
 
@@ -35,7 +35,7 @@ const Upload = () => {
             setFileInputState('');
             setPreviewSource('');
         } catch (err) {
-            console.error(err);
+            console.log(err);
         }
     };
 
@@ -50,7 +50,7 @@ const Upload = () => {
 
     return (
         <div>
-            <h1>Upload</h1>
+            <h1>Para subir imagenes</h1>
             <form onSubmit={handleSubmitFile} className="form">
                 <input
                     id="fileInput"
@@ -61,7 +61,7 @@ const Upload = () => {
                     className="form-input"
                 />
                 <button className="btn" type="submit">
-                    Submit
+                    Subir
                 </button>
             </form>
             {previewSource && (

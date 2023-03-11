@@ -1,21 +1,21 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
-import Upload from './pages/Upload.js';
-import Home from './pages/Home.js';
+import Upload from './pages/Upload';
+import Home from './pages/Home';
 
 function App() {
     return (
         <div className="container">
             <Router>
                 <nav className="nav">
-                    <div className="nav-brand">Cloudinary React</div>
+                    <div className="nav-brand">Club-Thai</div>
                     <ul className="nav-items">
                         <li className="nav-item">
-                            <Link to="/">Gallery</Link>
+                            <Link to="/">Galeria</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/upload">Upload</Link>
+                            <Link to="/upload">Subir</Link>
                         </li>
                     </ul>
                 </nav>
